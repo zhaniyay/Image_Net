@@ -106,9 +106,9 @@ class TinyImageNetDataset(Dataset):
         base_dir = os.path.join(img_dir, 'train')
         self.label_index = {}
         for idx, label in enumerate(os.listdir(base_dir)):
-            # print(f'index={idx}, label={label}')
+            print(f'index={idx}, label={label}')
             self.label_index[label] = idx
-        # print(f'Total lables = {len(self.label_index)}')
+            print(f'Total lables = {len(self.label_index)}')
 
 
 class TinyImageNetTrainDataset(TinyImageNetDataset):
@@ -225,7 +225,7 @@ class TinyImageNetDataModule(L.LightningDataModule):
         )
 
 def get_model_list():
-    model_list = ["resnet18", "resnet34", "resnet50", "resnet101", "resnet152"]
+    model_list = ["resnet18", "resnet152"]
     # entrypoints = torch.hub.list('pytorch/vision', force_reload=True)
     # for e in entrypoints:
     #     if e.startswith("resnet"):
